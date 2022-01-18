@@ -9,5 +9,4 @@ cdk.out
 
 # User context
 cdk.context.json
-# User options
-.env
+
