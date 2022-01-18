@@ -127,6 +127,11 @@ export class MinecraftStack extends Stack {
             hostPort: minecraftServerConfig.port,
             protocol: minecraftServerConfig.protocol,
           },
+          {
+            containerPort: minecraftServerConfig.voiceChatPort,
+            hostPort: minecraftServerConfig.voiceChatPort,
+            protocol: minecraftServerConfig.voiceChatProtocol,
+          }
         ],
         environment: config.minecraftImageEnv,
         essential: false,
@@ -158,6 +163,11 @@ export class MinecraftStack extends Stack {
     serviceSecurityGroup.addIngressRule(
       ec2.Peer.anyIpv4(),
       minecraftServerConfig.ingressRulePort
+    );
+
+    serviceSecurityGroup.addIngressRule(
+      ec2.Peer.anyIpv4(),
+      minecraftServerConfig.voiceChatIngressRulePort
     );
 
     const minecraftServerService = new ecs.FargateService(

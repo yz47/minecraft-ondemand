@@ -166,4 +166,16 @@ export interface MinecraftEditionConfig {
    * The ingress rule port to be used for the service security group
    */
   ingressRulePort: Port;
+  /**
+   * Port number for Voice Chat
+   */
+  voiceChatPort: number;
+  /**
+   * Protocol for for Voice Chat
+   */
+  voiceChatProtocol: Protocol;
+  /**
+   * The ingress rule port for Voice Chat to be used for the service security group
+   */
+  voiceChatIngressRulePort: Port;
 }
